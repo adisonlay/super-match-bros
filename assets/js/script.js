@@ -7,6 +7,7 @@ var secondCardDiv = null;
 var firstCardCheckFront = null;
 var secondCardCheckFront = null;
 var matches = null;
+var maxMatches = 9;
 
 var cardClasses = [
   'css-logo',
@@ -80,6 +81,7 @@ function checkMatch(card1, card2) {
     setTimeout(flipCardsBack, 1500);
   }
   resetClickedCards();
+  checkWin();
 }
 
 function removeClickHandler() {
@@ -94,4 +96,11 @@ function flipCardsBack() {
 function resetClickedCards() {
   firstCardClicked = null;
   secondCardClicked = null;
+}
+
+function checkWin() {
+  var winModal = $('#win_modal');
+  if (matches === maxMatches) {
+    winModal.removeClass('hidden');
+  }
 }

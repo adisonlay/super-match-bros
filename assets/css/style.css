@@ -5,7 +5,8 @@ body {
   background-repeat: no-repeat;
 }
 
-header > h1 {
+header > .top_heading {
+  font-size: 3em;
   text-align: center;
 }
 
@@ -78,6 +79,7 @@ header > h1 {
           width: 100%;
         }
 
+
 .css-logo {
   background-image: url(../images/css-logo.png);
 }
@@ -113,6 +115,52 @@ header > h1 {
 .react-logo {
   background-image: url(../images/react-logo.png);
 }
+
+
+.modal {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+  .modal_area {
+    background-color: dodgerblue;
+    margin: 15% auto;
+    padding: 2em;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 40%;
+  }
+
+    .win_message {
+      font-size: 3em;
+      text-align: center;
+    }
+
+    .modal_buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+
+      .back_button, .play_again_button {
+        width: 30%;
+        height: 10%;
+        padding: 1em;
+        border: 1px solid;
+        border-radius: 10px;
+        font-size: 1.2em;
+        text-align: center;
+      }
+
+        .back_button:hover, .play_again_button:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
 
 .hidden {
   display: none;
