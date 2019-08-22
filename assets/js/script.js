@@ -36,6 +36,8 @@ function initializeApp() {
   // shuffleCardOrder();
   setCardFronts();
   addClickHandler();
+  backButtonHandler();
+  playAgainButtonHandler();
 }
 
 // function shuffleCardOrder() {}
@@ -103,9 +105,8 @@ function resetClickedCards() {
 }
 
 function checkWin() {
-  var winModal = $('#win_modal');
   if (matches === maxMatches) {
-    winModal.removeClass('hidden');
+    $('#win_modal').removeClass('hidden');
     gamesPlayed++;
   }
 }
@@ -120,4 +121,29 @@ function displayStats() {
 
   var currentAccuracy = Math.round(calculateAccuracy() * 100) + '%';
   $('#accuracy_calc').text(currentAccuracy);
+}
+
+function resetStats() {
+  matches = null;
+  attempts = null;
+  $('#attempts_count').text(0);
+  $('#accuracy_calc').text('0%');
+}
+
+function resetAllCards() {
+  $('.back').removeClass('hidden');
+  resetStats();
+  // shuffleCardOrder();
+}
+
+function closeModal() {
+  $('#win_modal').addClass('hidden');
+}
+
+function backButtonHandler() {
+  $('.back_button').click(closeModal);
+}
+
+function playAgainButtonHandler() {
+  $('.play_again_button').click(resetAllCards).click(closeModal);
 }
