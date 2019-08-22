@@ -66,17 +66,17 @@ header > h1 {
           height: 100%;
         }
 
-.back {
-  background-image: url(../images/lfz-card.jpg);
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-}
+        .back {
+          background-image: url(../images/lfz-card.jpg);
+          width: 100%;
+          position: absolute;
+          z-index: 1;
+        }
 
-.front {
-  position: absolute;
-  width: 100%;
-}
+        .front {
+          position: absolute;
+          width: 100%;
+        }
 
 .css-logo {
   background-image: url(../images/css-logo.png);
