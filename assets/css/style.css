@@ -3,11 +3,17 @@ body {
   background-color: skyblue;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 header > .top_heading {
   font-size: 3em;
   text-align: center;
+  background: -webkit-linear-gradient(black, black, plum);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px white;
+  letter-spacing: 0.5px;
 }
 
 .display_area {
@@ -21,26 +27,32 @@ header > .top_heading {
     align-items: center;
 
     text-align: center;
-    width: 20%;
+    width: 25%;
+    letter-spacing: 0.5px;
   }
 
-    .stats_container > h3 {
+    .stats_container > .stats_title {
       margin: 1vh;
+      font-size: 1.5em;
+      background: -webkit-linear-gradient(black, black, plum);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px white;
     }
 
     .stats_box{
       background-color: rgba(30, 144, 255, .7);
-      border: 1px solid;
+      border: 1px solid white;
       border-radius: 10px;
-      width: 80%;
+      width: 65%;
       padding: 3vh 0;
       font-size: 1.2em;
       text-align: center;
-      margin: 1vh;
+      margin: 0.5vh;
     }
 
   .main_container {
-    width: 80%;
+    width: 75%;
   }
 
     .cards_container {

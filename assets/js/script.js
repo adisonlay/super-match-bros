@@ -33,18 +33,32 @@ var cardClasses = [
 ];
 
 function initializeApp() {
-  // shuffleCardOrder();
+  shuffleCardOrder(cardClasses);
   setCardFronts();
   addClickHandler();
   backButtonHandler();
   playAgainButtonHandler();
 }
 
-// function shuffleCardOrder() {}
+function shuffleCardOrder(array) {
+  var currentIndex = array.length;
+  var tempValue = null;
+  var randomIndex = null;
+
+  while (currentIndex > 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    tempValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = tempValue;
+  }
+}
 
 function setCardFronts() {
   for (var i = 1; i <= cardClasses.length; i++) {
     var cardID = '#card' + i;
+    $(cardID).find('.front').removeClass('.css-logo docker-logo github-logo html-logo js-logo mysql-logo node-logo php-logo react-logo');
     $(cardID).find('.front').addClass(cardClasses[i - 1]);
   }
 }
@@ -54,9 +68,6 @@ function addClickHandler() {
 }
 
 function handleCardClick(event) {
-  console.log(event);
-  console.log(event.currentTarget);
-
   var targetCard = $(event.currentTarget);
   if (targetCard.hasClass('back')) {
     targetCard.addClass('hidden');
@@ -73,16 +84,15 @@ function handleCardClick(event) {
 
     checkMatch(firstCardCheckFront, secondCardCheckFront);
     removeClickHandler();
-    setTimeout(addClickHandler, 1500);
+    setTimeout(addClickHandler, 1000);
   }
 }
 
 function checkMatch(card1, card2) {
   if (card1 === card2) {
-    console.log('cards match');
     matches++;
   } else {
-    setTimeout(flipCardsBack, 1500);
+    setTimeout(flipCardsBack, 1000);
   }
   attempts++;
   resetClickedCards();
@@ -133,7 +143,8 @@ function resetStats() {
 function resetAllCards() {
   $('.back').removeClass('hidden');
   resetStats();
-  // shuffleCardOrder();
+  shuffleCardOrder(cardClasses);
+  setCardFronts();
 }
 
 function closeModal() {
