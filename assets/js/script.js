@@ -8,6 +8,8 @@ var firstCardCheckFront = null;
 var secondCardCheckFront = null;
 var matches = null;
 var maxMatches = 9;
+var attempts = null;
+var gamesPlayed = 0;
 
 var cardClasses = [
   'css-logo',
@@ -80,8 +82,10 @@ function checkMatch(card1, card2) {
   } else {
     setTimeout(flipCardsBack, 1500);
   }
+  attempts++;
   resetClickedCards();
   checkWin();
+  displayStats();
 }
 
 function removeClickHandler() {
@@ -102,5 +106,18 @@ function checkWin() {
   var winModal = $('#win_modal');
   if (matches === maxMatches) {
     winModal.removeClass('hidden');
+    gamesPlayed++;
   }
+}
+
+function calculateAccuracy() {
+  return matches / attempts;
+}
+
+function displayStats() {
+  $('#games_played_count').text(gamesPlayed);
+  $('#attempts_count').text(attempts);
+
+  var currentAccuracy = Math.round(calculateAccuracy() * 100) + '%';
+  $('#accuracy_calc').text(currentAccuracy);
 }

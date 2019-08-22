@@ -56,7 +56,6 @@ header > .top_heading {
       .card_div{
         height: 30%;
         width: 15%;
-        /* box-sizing: border-box; */
         position: relative;
       }
 
@@ -140,6 +139,7 @@ header > .top_heading {
     .win_message {
       font-size: 3em;
       text-align: center;
+      margin: 5%;
     }
 
     .modal_buttons {
