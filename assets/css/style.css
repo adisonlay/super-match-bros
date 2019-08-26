@@ -1,23 +1,74 @@
+@font-face {
+  font-family: galliard;
+  src: url(../fonts/GalliardStd-Ultra.otf);
+}
+
+.hvr-glow {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+
+  .hvr-glow:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  }
+
+@keyframes pop_animation {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+  .pop {
+    animation-name: pop_animation;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+
 body {
-  background-image: url(../images/lfz-background.jpg);
-  background-color: skyblue;
+  background-image: url(../images/smash/background.jpg);
+  background-color: darkslategray;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-header > .top_heading {
-  font-size: 3em;
-  text-align: center;
-  background: -webkit-linear-gradient(black, black, plum);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px white;
-  letter-spacing: 0.5px;
+.header_container{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
+
+  .top_heading {
+    display: inline-block;
+    font-size: 4em;
+    font-family: galliard, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: -webkit-linear-gradient(black 35%, darkred 70%, firebrick 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px white;
+    letter-spacing: -3px;
+    margin: 1vh 1vw;
+  }
+
+  .top_subheading {
+    display: inline-block;
+    font-size: 3em;
+    background: -webkit-linear-gradient(black 45%, plum);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px white;
+    margin: 1vh 1vw;
+  }
 
 .display_area {
   display: flex;
+  justify-content: center;
 }
 
   .stats_container {
@@ -31,28 +82,33 @@ header > .top_heading {
     letter-spacing: 0.5px;
   }
 
-    .stats_container > .stats_title {
+    .stats_title {
       margin: 1vh;
       font-size: 1.5em;
-      background: -webkit-linear-gradient(black, black, plum);
+      background: -webkit-linear-gradient(black 45%, plum);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px white;
     }
 
     .stats_box{
-      background-color: rgba(30, 144, 255, .7);
+      background-color: rgba(221, 160, 221, .2);
       border: 1px solid white;
       border-radius: 10px;
+      -webkit-text-stroke: 0.5px white;
       width: 65%;
       padding: 3vh 0;
-      font-size: 1.2em;
+      font-size: 1.3em;
       text-align: center;
       margin: 0.5vh;
     }
 
+      .stock_head {
+        transform: perspective(1px) translateZ(0);
+      }
+
   .main_container {
-    width: 75%;
+    width: 60%;
   }
 
     .cards_container {
@@ -63,12 +119,19 @@ header > .top_heading {
 
       width: 100%;
       height: 100%;
+      perspective: 1000px;
     }
 
       .card_div{
         height: 30%;
         width: 15%;
         position: relative;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .card_div.flip {
+        transform: rotateY(180deg);
       }
 
         .card {
@@ -76,55 +139,64 @@ header > .top_heading {
           background-position: center;
           background-repeat: no-repeat;
           height: 100%;
+          border: 3px groove plum;
+          border-radius: 10px;
         }
 
         .back {
-          background-image: url(../images/lfz-card.jpg);
+          background-image: url(../images/smash/logo.png);
+          background-color: rgb(35, 30, 70);
+          background-size: contain;
+          background-position: center;
           width: 100%;
           position: absolute;
           z-index: 1;
+          backface-visibility: hidden;
+          cursor: pointer;
         }
 
         .front {
           position: absolute;
           width: 100%;
+          backface-visibility: hidden;
+          transform: rotateY(180deg);
         }
 
 
-.css-logo {
-  background-image: url(../images/css-logo.png);
+.cfalcon {
+  background-image: url(../images/smash/cfalcon.png);
 }
 
-.docker-logo {
-  background-image: url(../images/docker-logo.jpg);
+.donkeykong {
+  background-image: url(../images/smash/donkeykong.png);
 }
 
-.github-logo {
-  background-image: url(../images/gitHub-logo.png);
+.fox {
+  background-image: url(../images/smash/fox.png);
 }
 
-.html-logo {
-  background-image: url(../images/html-logo.png);
+.kirby {
+  background-image: url(../images/smash/kirby.png);
 }
 
-.js-logo {
-  background-image: url(../images/js-logo.png);
+.link {
+  background-image: url(../images/smash/link.png);
 }
 
-.mysql-logo {
-  background-image: url(../images/mysql-logo.jpg);
+.mario {
+  background-image: url(../images/smash/mario.png);
 }
 
-.node-logo {
-  background-image: url(../images/node-logo.png);
+.pikachu {
+  background-image: url(../images/smash/pikachu.png);
 }
 
-.php-logo {
-  background-image: url(../images/php-logo.jpeg);
+.samus {
+  background-image: url(../images/smash/samus.png);
 }
 
-.react-logo {
-  background-image: url(../images/react-logo.png);
+.yoshi {
+  background-image: url(../images/smash/yoshi.png);
 }
 
 
@@ -136,22 +208,24 @@ header > .top_heading {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.8);
 }
 
   .modal_area {
-    background-color: dodgerblue;
+    background-color: indigo;
+    background-image: url(../images/smash/modal_background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
     margin: 15% auto;
     padding: 2em;
-    border: 1px solid;
+    border: 1px solid white;
     border-radius: 10px;
     width: 40%;
   }
 
     .win_message {
-      font-size: 3em;
       text-align: center;
-      margin: 5%;
     }
 
     .modal_buttons {
@@ -162,17 +236,36 @@ header > .top_heading {
       .back_button, .play_again_button {
         width: 30%;
         height: 10%;
+        background-color: rgba(221, 160, 221, .2);
         padding: 1em;
-        border: 1px solid;
+        border: 1px solid white;
         border-radius: 10px;
-        font-size: 1.2em;
+        font-size: 1.4em;
         text-align: center;
+        -webkit-text-stroke: 0.5px white;
       }
 
         .back_button:hover, .play_again_button:hover {
           cursor: pointer;
           opacity: 0.5;
         }
+
+.mute_button, .unmute_button {
+  position: fixed;
+  right: 2vh;
+  bottom: 2vh;
+  width: 6vh;
+  height: 6vh;
+  opacity: 0.5;
+  font-size: 6vh;
+  color: white;
+  z-index: 3;
+}
+
+  .mute_button:hover, .unmute_button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 
 .hidden {
   display: none;

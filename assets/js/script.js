@@ -10,26 +10,27 @@ var matches = null;
 var maxMatches = 9;
 var attempts = null;
 var gamesPlayed = 0;
+var musicCurrentlyPlaying = false;
 
 var cardClasses = [
-  'css-logo',
-  'css-logo',
-  'docker-logo',
-  'docker-logo',
-  'github-logo',
-  'github-logo',
-  'html-logo',
-  'html-logo',
-  'js-logo',
-  'js-logo',
-  'mysql-logo',
-  'mysql-logo',
-  'node-logo',
-  'node-logo',
-  'php-logo',
-  'php-logo',
-  'react-logo',
-  'react-logo'
+  'cfalcon',
+  'cfalcon',
+  'donkeykong',
+  'donkeykong',
+  'fox',
+  'fox',
+  'kirby',
+  'kirby',
+  'link',
+  'link',
+  'mario',
+  'mario',
+  'pikachu',
+  'pikachu',
+  'samus',
+  'samus',
+  'yoshi',
+  'yoshi'
 ];
 
 function initializeApp() {
@@ -38,6 +39,7 @@ function initializeApp() {
   addClickHandler();
   backButtonHandler();
   playAgainButtonHandler();
+  muteButtonHandler();
 }
 
 function shuffleCardOrder(array) {
@@ -58,7 +60,7 @@ function shuffleCardOrder(array) {
 function setCardFronts() {
   for (var i = 1; i <= cardClasses.length; i++) {
     var cardID = '#card' + i;
-    $(cardID).find('.front').removeClass('.css-logo docker-logo github-logo html-logo js-logo mysql-logo node-logo php-logo react-logo');
+    $(cardID).find('.front').removeClass('cfalcon donkeykong fox kirby link mario pikachu samus yoshi');
     $(cardID).find('.front').addClass(cardClasses[i - 1]);
   }
 }
@@ -70,7 +72,11 @@ function addClickHandler() {
 function handleCardClick(event) {
   var targetCard = $(event.currentTarget);
   if (targetCard.hasClass('back')) {
-    targetCard.addClass('hidden');
+    targetCard.off('click');
+    targetCard.parent().toggleClass('flip');
+    setTimeout(function(){
+      targetCard.addClass('hidden');
+    }, 300);
   }
 
   if (!firstCardClicked) {
@@ -91,6 +97,8 @@ function handleCardClick(event) {
 function checkMatch(card1, card2) {
   if (card1 === card2) {
     matches++;
+    playCorrectMatchSound();
+    removeMatchedStock();
   } else {
     setTimeout(flipCardsBack, 1000);
   }
@@ -107,6 +115,8 @@ function removeClickHandler() {
 function flipCardsBack() {
   firstCardDiv.find('.back').removeClass('hidden');
   secondCardDiv.find('.back').removeClass('hidden');
+  firstCardDiv.toggleClass('flip');
+  secondCardDiv.toggleClass('flip');
 }
 
 function resetClickedCards() {
@@ -116,7 +126,10 @@ function resetClickedCards() {
 
 function checkWin() {
   if (matches === maxMatches) {
-    $('#win_modal').removeClass('hidden');
+    setTimeout(function(){
+      $('#win_modal').removeClass('hidden');
+      playWinSound();
+    }, 800);
     gamesPlayed++;
   }
 }
@@ -142,6 +155,8 @@ function resetStats() {
 
 function resetAllCards() {
   $('.back').removeClass('hidden');
+  $('.card_div').removeClass('flip');
+  $('.stock_head').removeClass('hidden pop');
   resetStats();
   shuffleCardOrder(cardClasses);
   setCardFronts();
@@ -157,4 +172,45 @@ function backButtonHandler() {
 
 function playAgainButtonHandler() {
   $('.play_again_button').click(resetAllCards).click(closeModal);
+}
+
+function playWinSound() {
+  document.getElementById('game_sound').play();
+}
+
+function playCorrectMatchSound() {
+  var soundToPlay = secondCardCheckFront.slice(secondCardCheckFront.lastIndexOf('/') + 1, secondCardCheckFront.lastIndexOf('.'));
+  var soundToPlayID = soundToPlay + '_sound';
+  document.getElementById(soundToPlayID).play();
+}
+
+function removeMatchedStock() {
+  var characterMatched = secondCardCheckFront.slice(secondCardCheckFront.lastIndexOf('/') + 1, secondCardCheckFront.lastIndexOf('.'));
+  var characterMatchedID = '#' + characterMatched + '_stock';
+  $(characterMatchedID).addClass('pop');
+  setTimeout(function(){
+    $(characterMatchedID).addClass('hidden');
+  }, 300);
+}
+
+function playBackgroundMusic() {
+  document.getElementById('background_music').play();
+}
+
+function pauseBackgroundMusic() {
+  document.getElementById('background_music').pause();
+}
+
+function muteButtonHandler() {
+  $('#mute_button, #unmute_button').click(handleMuteClick);
+}
+
+function handleMuteClick() {
+  if (musicCurrentlyPlaying) {
+    pauseBackgroundMusic();
+  } else {
+    playBackgroundMusic();
+  }
+  musicCurrentlyPlaying = !musicCurrentlyPlaying;
+  $('#mute_button, #unmute_button').toggleClass('hidden');
 }
