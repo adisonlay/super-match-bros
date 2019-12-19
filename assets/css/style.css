@@ -1,31 +1,11 @@
-@font-face {
-  font-family: galliard;
-  src: url(../fonts/GalliardStd-Ultra.otf);
+/* ROOT */
+:root {
+  --tc-light-gray: #eeeeee;
 }
 
-.hover_glow {
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0);
-  transition-duration: 0.5s;
-  transition-property: box-shadow;
+* {
+  box-sizing: border-box;
 }
-
-  .hover_glow:hover {
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-  }
-
-@keyframes pop_animation {
-  50% {
-    transform: scale(1.2);
-  }
-}
-
-  .pop {
-    animation-name: pop_animation;
-    animation-duration: 0.3s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-  }
 
 body {
   background-image: url(../images/smash/background.jpg);
@@ -35,12 +15,41 @@ body {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+/* FONTS */
+@font-face {
+  font-family: galliard;
+  src: url(../fonts/GalliardStd-Ultra.otf);
+}
+
+/* TRANSITIONS/ANIMATIONS */
+.hover_glow {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0);
+  transition-duration: 0.5s;
+  transition-property: box-shadow;
+}
+  .hover_glow:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+  }
+
+@keyframes pop_animation {
+  50% {
+    transform: scale(1.2);
+  }
+}
+  .pop {
+    animation-name: pop_animation;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+
+/* HEADER */
 .header_container{
   display: flex;
   justify-content: center;
   align-items: baseline;
 }
-
   .top_heading {
     display: inline-block;
     font-size: 4em;
@@ -52,7 +61,6 @@ body {
     letter-spacing: -3px;
     margin: 1vh 1vw;
   }
-
   .top_subheading {
     display: inline-block;
     font-size: 3em;
@@ -63,22 +71,21 @@ body {
     margin: 1vh 1vw;
   }
 
+/* MAIN */
 .display_area {
   display: flex;
   justify-content: center;
 }
-
+  /* STATS ASIDE */
   .stats_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     width: 25%;
     letter-spacing: 0.5px;
   }
-
     .stats_title {
       margin: 1vh;
       font-size: 1.5em;
@@ -87,7 +94,6 @@ body {
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px white;
     }
-
     .stats_box{
       background-color: rgba(221, 160, 221, .2);
       border: 1px solid white;
@@ -99,15 +105,14 @@ body {
       text-align: center;
       margin: 0.5vh;
     }
-
       .stock_head {
         transform: perspective(1px) translateZ(0);
       }
 
+  /* GAME AREA MAIN */
   .main_container {
     width: 60%;
   }
-
     .cards_container {
       display: flex;
       flex-wrap: wrap;
@@ -118,7 +123,6 @@ body {
       height: 100%;
       perspective: 1000px;
     }
-
       .card_div{
         height: 30%;
         width: 15%;
@@ -126,11 +130,9 @@ body {
         transition: transform 0.8s;
         transform-style: preserve-3d;
       }
-
       .card_div.flip {
         transform: rotateY(180deg);
       }
-
         .card {
           background-size: cover;
           background-position: center;
@@ -139,7 +141,6 @@ body {
           border: 3px groove plum;
           border-radius: 10px;
         }
-
         .back {
           background-image: url(../images/smash/logo.png);
           background-color: rgb(35, 30, 70);
@@ -151,7 +152,6 @@ body {
           backface-visibility: hidden;
           cursor: pointer;
         }
-
         .front {
           position: absolute;
           width: 100%;
@@ -159,44 +159,36 @@ body {
           transform: rotateY(180deg);
         }
 
-
+/* CARD IMAGES */
 .cfalcon {
   background-image: url(../images/smash/cfalcon.png);
 }
-
 .donkeykong {
   background-image: url(../images/smash/donkeykong.png);
 }
-
 .fox {
   background-image: url(../images/smash/fox.png);
 }
-
 .kirby {
   background-image: url(../images/smash/kirby.png);
 }
-
 .link {
   background-image: url(../images/smash/link.png);
 }
-
 .mario {
   background-image: url(../images/smash/mario.png);
 }
-
 .pikachu {
   background-image: url(../images/smash/pikachu.png);
 }
-
 .samus {
   background-image: url(../images/smash/samus.png);
 }
-
 .yoshi {
   background-image: url(../images/smash/yoshi.png);
 }
 
-
+/* WIN MODAL */
 .modal {
   position: fixed;
   z-index: 2;
@@ -207,7 +199,6 @@ body {
   overflow: auto;
   background-color: rgba(0,0,0,0.8);
 }
-
   .modal_area {
     background-color: indigo;
     background-image: url(../images/smash/modal_background.jpg);
@@ -220,16 +211,13 @@ body {
     border-radius: 10px;
     width: 40%;
   }
-
     .win_message {
       text-align: center;
     }
-
     .modal_buttons {
       display: flex;
       justify-content: space-around;
     }
-
       .back_button, .play_again_button {
         width: 30%;
         height: 10%;
@@ -241,12 +229,12 @@ body {
         text-align: center;
         -webkit-text-stroke: 0.5px white;
       }
-
         .back_button:hover, .play_again_button:hover {
           cursor: pointer;
           opacity: 0.5;
         }
 
+/* SOUND CONTROLS */
 .mute_button, .unmute_button {
   position: fixed;
   right: 2vh;
@@ -258,12 +246,12 @@ body {
   color: white;
   z-index: 3;
 }
-
   .mute_button:hover, .unmute_button:hover {
     cursor: pointer;
     opacity: 0.8;
   }
 
+/* HELPER CLASSES */
 .hidden {
   display: none;
 }
