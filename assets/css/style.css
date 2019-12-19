@@ -1,19 +1,31 @@
+/* ROOT */
+* {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  background-image: url(../images/smash/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* FONTS */
 @font-face {
   font-family: galliard;
   src: url(../fonts/GalliardStd-Ultra.otf);
 }
 
-.hvr-glow {
-  -webkit-transform: perspective(1px) translateZ(0);
+/* TRANSITIONS/ANIMATIONS */
+.hover_glow {
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(255, 255, 255, 0);
-  -webkit-transition-duration: 0.3s;
   transition-duration: 0.5s;
-  -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
 }
-
-  .hvr-glow:hover {
+  .hover_glow:hover {
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
   }
 
@@ -22,7 +34,6 @@
     transform: scale(1.2);
   }
 }
-
   .pop {
     animation-name: pop_animation;
     animation-duration: 0.3s;
@@ -30,119 +41,105 @@
     animation-iteration-count: 1;
   }
 
-body {
-  background-image: url(../images/smash/background.jpg);
-  background-color: darkslategray;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.header_container{
+/* HEADER */
+.header_container {
   display: flex;
   justify-content: center;
   align-items: baseline;
+  height: 10vh;
+  line-height: 10vh;
+  overflow: hidden;
 }
-
   .top_heading {
-    display: inline-block;
-    font-size: 4em;
+    font-size: 6rem;
     font-family: galliard, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background: -webkit-linear-gradient(black 35%, darkred 70%, firebrick 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px white;
-    letter-spacing: -3px;
-    margin: 1vh 1vw;
+    letter-spacing: -0.3rem;
+    margin: 0 1rem;
   }
-
   .top_subheading {
-    display: inline-block;
-    font-size: 3em;
+    font-size: 4.5rem;
     background: -webkit-linear-gradient(black 45%, plum);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px white;
-    margin: 1vh 1vw;
+    margin: 0 1rem;
   }
 
-.display_area {
+/* MAIN */
+.main_display {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 90vh;
 }
-
+  /* STATS ASIDE */
   .stats_container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
     text-align: center;
-    width: 25%;
-    letter-spacing: 0.5px;
+    width: 18%;
+    letter-spacing: 0.1rem;
   }
-
     .stats_title {
-      margin: 1vh;
-      font-size: 1.5em;
+      margin: 0;
+      font-size: 3rem;
       background: -webkit-linear-gradient(black 45%, plum);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px white;
     }
-
-    .stats_box{
+    .stats_box {
       background-color: rgba(221, 160, 221, .2);
       border: 1px solid white;
-      border-radius: 10px;
+      border-radius: 1rem;
       -webkit-text-stroke: 0.5px white;
-      width: 65%;
-      padding: 3vh 0;
-      font-size: 1.3em;
+      height: 10%;
+      width: 100%;
+      font-size: 2.5rem;
       text-align: center;
-      margin: 0.5vh;
+      line-height: 9vh;
+      overflow: hidden;
     }
-
       .stock_head {
         transform: perspective(1px) translateZ(0);
       }
 
-  .main_container {
-    width: 60%;
+  /* GAME AREA SECTION */
+  .game_area_container {
+    width: 65%;
   }
-
     .cards_container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
-      align-content: space-around;
-
-      width: 100%;
+      justify-content: space-evenly;
+      align-content: space-evenly;
       height: 100%;
-      perspective: 1000px;
+      width: 100%;
+      perspective: 100rem;
     }
-
-      .card_div{
+      .card_div {
         height: 30%;
         width: 15%;
         position: relative;
         transition: transform 0.8s;
         transform-style: preserve-3d;
       }
-
       .card_div.flip {
         transform: rotateY(180deg);
       }
-
         .card {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           height: 100%;
-          border: 3px groove plum;
-          border-radius: 10px;
+          border: 0.3rem groove plum;
+          border-radius: 1rem;
         }
-
         .back {
           background-image: url(../images/smash/logo.png);
           background-color: rgb(35, 30, 70);
@@ -154,7 +151,6 @@ body {
           backface-visibility: hidden;
           cursor: pointer;
         }
-
         .front {
           position: absolute;
           width: 100%;
@@ -162,111 +158,159 @@ body {
           transform: rotateY(180deg);
         }
 
-
+/* CARD IMAGES */
 .cfalcon {
   background-image: url(../images/smash/cfalcon.png);
 }
-
 .donkeykong {
   background-image: url(../images/smash/donkeykong.png);
 }
-
 .fox {
   background-image: url(../images/smash/fox.png);
 }
-
 .kirby {
   background-image: url(../images/smash/kirby.png);
 }
-
 .link {
   background-image: url(../images/smash/link.png);
 }
-
 .mario {
   background-image: url(../images/smash/mario.png);
 }
-
 .pikachu {
   background-image: url(../images/smash/pikachu.png);
 }
-
 .samus {
   background-image: url(../images/smash/samus.png);
 }
-
 .yoshi {
   background-image: url(../images/smash/yoshi.png);
 }
 
-
+/* WIN MODAL */
 .modal {
   position: fixed;
-  z-index: 2;
-  left: 0;
   top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
-
   .modal_area {
-    background-color: indigo;
     background-image: url(../images/smash/modal_background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: repeat-x;
-    margin: 15% auto;
-    padding: 2em;
-    border: 1px solid white;
-    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 40%;
+    padding: 5em;
+    border: 1px solid white;
+    border-radius: 1rem;
   }
-
     .win_message {
+      background-image: url(../images/smash/win_message.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 15rem;
+    }
+    .play_again_button {
+      background-color: rgba(221, 160, 221, .4);
+      padding: 2rem;
+      border: 1px solid white;
+      border-radius: 1rem;
+      font-size: 2.5rem;
       text-align: center;
+      -webkit-text-stroke: 0.5px white;
+      width: 40%;
+      margin: 1rem auto;
     }
-
-    .modal_buttons {
-      display: flex;
-      justify-content: space-around;
-    }
-
-      .back_button, .play_again_button {
-        width: 30%;
-        height: 10%;
-        background-color: rgba(221, 160, 221, .2);
-        padding: 1em;
-        border: 1px solid white;
-        border-radius: 10px;
-        font-size: 1.4em;
-        text-align: center;
-        -webkit-text-stroke: 0.5px white;
+      .play_again_button:hover {
+        cursor: pointer;
+        background-color: rgba(221, 160, 221, .6);
       }
 
-        .back_button:hover, .play_again_button:hover {
-          cursor: pointer;
-          opacity: 0.5;
-        }
-
+/* SOUND CONTROLS */
 .mute_button, .unmute_button {
   position: fixed;
-  right: 2vh;
-  bottom: 2vh;
-  width: 6vh;
-  height: 6vh;
+  right: 1rem;
+  bottom: 1rem;
+  width: 4rem;
+  height: 4rem;
   opacity: 0.5;
-  font-size: 6vh;
+  font-size: 4rem;
   color: white;
   z-index: 3;
 }
-
   .mute_button:hover, .unmute_button:hover {
     cursor: pointer;
     opacity: 0.8;
   }
 
+/* HELPER CLASSES */
+.icon {
+  font-size: inherit;
+}
+
 .hidden {
   display: none;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .main_display {
+    flex-direction: column;
+  }
+
+  .stats_container {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    height: 20%;
+    width: 100%;
+  }
+    .stats_title, #stocks_label, #stocks_displayed {
+      display: none;
+    }
+    .stats_box {
+      height: 44%;
+      width: 30%;
+      line-height: 8vh;
+    }
+
+  .game_area_container {
+    height: 80%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  * {
+    font-size: 9px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  * {
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  * {
+    font-size: 7px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: 6px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  * {
+    font-size: 5px;
+  }
 }

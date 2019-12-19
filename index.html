@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://kit.fontawesome.com/ab6b2503d1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
@@ -18,18 +18,18 @@
       <h2 class="top_subheading">Melee</h2>
     </header>
 
-    <div class="display_area">
+    <main class="main_display">
 
       <aside class="stats_container">
         <p class="stats_title">Stats</p>
-        <div class="stats_box hvr-glow" id="games_played_label">Games Played</div>
-        <div class="stats_box hvr-glow" id="games_played_count">0</div>
-        <div class="stats_box hvr-glow" id="attempts_label">Attempts</div>
-        <div class="stats_box hvr-glow" id="attempts_count">0</div>
-        <div class="stats_box hvr-glow" id="accuracy_label">Accuracy</div>
-        <div class="stats_box hvr-glow" id="accuracy_calc">0%</div>
-        <div class="stats_box hvr-glow" id="stocks_label">Stocks</div>
-        <div class="stats_box hvr-glow" id="stocks_displayed">
+        <div class="stats_box hover_glow" id="games_played_label">Games Played</div>
+        <div class="stats_box hover_glow" id="games_played_count">0</div>
+        <div class="stats_box hover_glow" id="attempts_label">Attempts</div>
+        <div class="stats_box hover_glow" id="attempts_count">0</div>
+        <div class="stats_box hover_glow" id="accuracy_label">Accuracy</div>
+        <div class="stats_box hover_glow" id="accuracy_calc">0%</div>
+        <div class="stats_box hover_glow" id="stocks_label">Stocks</div>
+        <div class="stats_box hover_glow" id="stocks_displayed">
           <img src="assets/images/smash/cfalconstock.png" alt="C. Falcon Stock" class="stock_head" id="cfalcon_stock">
           <img src="assets/images/smash/donkeykongstock.png" alt="Donkey Kong Stock" class="stock_head" id="donkeykong_stock">
           <img src="assets/images/smash/foxstock.png" alt="Fox Stock" class="stock_head" id="fox_stock">
@@ -42,122 +42,27 @@
         </div>
       </aside>
 
-      <main class="main_container">
+      <section class="game_area_container">
+        <div class="cards_container"></div>
+      </section>
 
-        <div class="cards_container">
+    </main>
 
-          <div class="card_div" id="card1">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card2">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card3">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card4">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card5">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card6">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card7">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card8">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card9">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card10">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card11">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card12">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card13">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card14">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card15">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card16">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card17">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-          <div class="card_div" id="card18">
-            <div class="card back hvr-glow"></div>
-            <div class="card front"></div>
-          </div>
-
-        </div>
-
-      </main>
-
-      <div class="modal hidden" id="win_modal">
-        <div class="modal_area">
-          <div class="win_message"><img src="assets/images/smash/win_message.png" alt="Game!"></div>
-          <div class="modal_buttons">
-            <div class="back_button hvr-glow">
-              Back
-            </div>
-            <div class="play_again_button hvr-glow">
-              Play Again
-            </div>
-          </div>
-
-        </div>
+    <div class="modal hidden" id="win_modal">
+      <div class="modal_area">
+        <div class="win_message"></div>
+        <div class="play_again_button hover_glow">Play Again</div>
       </div>
-
     </div>
 
-    <div class="audio">
+    <div class="mute_button" id="mute_button">
+      <i class="fas fa-volume-mute icon"></i>
+    </div>
+    <div class="unmute_button hidden" id="unmute_button">
+      <i class="fas fa-volume-up hidden icon"></i>
+    </div>
+
+    <div class="audio_container">
       <audio src="assets/sounds/game.wav" id="game_sound"></audio>
       <audio src="assets/sounds/cfalcon.wav" id="cfalcon_sound"></audio>
       <audio src="assets/sounds/donkeykong.wav" id="donkeykong_sound"></audio>
@@ -168,16 +73,9 @@
       <audio src="assets/sounds/pikachu.wav" id="pikachu_sound"></audio>
       <audio src="assets/sounds/samus.wav" id="samus_sound"></audio>
       <audio src="assets/sounds/yoshi.wav" id="yoshi_sound"></audio>
-      <audio autoplay loop id="background_music">
+      <audio loop id="background_music">
         <source src="assets/sounds/menu1.mp3" type="audio/mpeg">
       </audio>
-    </div>
-
-    <div class="mute_button" id="mute_button">
-      <i class="fas fa-volume-mute"></i>
-    </div>
-    <div class="unmute_button hidden" id="unmute_button">
-      <i class="fas fa-volume-up hidden"></i>
     </div>
 
   </body>

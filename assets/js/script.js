@@ -1,18 +1,17 @@
 $(document).ready(initializeApp);
 
-var firstCardClicked = null;
-var secondCardClicked = null;
-var firstCardDiv = null;
-var secondCardDiv = null;
-var firstCardCheckFront = null;
-var secondCardCheckFront = null;
-var matches = null;
-var maxMatches = 9;
-var attempts = null;
-var gamesPlayed = 0;
-var musicCurrentlyPlaying = false;
+let firstCardClicked = null;
+let secondCardClicked = null;
+let firstCardDiv = null;
+let secondCardDiv = null;
+let firstCardCheckFront = null;
+let secondCardCheckFront = null;
+let matches = null;
+let attempts = null;
+let gamesPlayed = 0;
+let musicCurrentlyPlaying = false;
 
-var cardClasses = [
+let cardClasses = [
   'cfalcon',
   'cfalcon',
   'donkeykong',
@@ -34,18 +33,28 @@ var cardClasses = [
 ];
 
 function initializeApp() {
+  createCardElements();
   shuffleCardOrder(cardClasses);
   setCardFronts();
   addClickHandler();
-  backButtonHandler();
-  playAgainButtonHandler();
-  muteButtonHandler();
+  setPlayAgainButtonHandler();
+  setMuteButtonHandler();
+}
+
+function createCardElements() {
+  for (let i = 1; i <= cardClasses.length; i++) {
+    const cardDiv = $('<div>').addClass('card_div').attr('id', 'card' + i);
+    const cardBack = $('<div>').addClass('card back hover_glow');
+    const cardFront = $('<div>').addClass('card front');
+    cardDiv.append(cardBack, cardFront);
+    $('.cards_container').append(cardDiv);
+  }
 }
 
 function shuffleCardOrder(array) {
-  var currentIndex = array.length;
-  var tempValue = null;
-  var randomIndex = null;
+  let currentIndex = array.length;
+  let tempValue = null;
+  let randomIndex = null;
 
   while (currentIndex > 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -58,8 +67,8 @@ function shuffleCardOrder(array) {
 }
 
 function setCardFronts() {
-  for (var i = 1; i <= cardClasses.length; i++) {
-    var cardID = '#card' + i;
+  for (let i = 1; i <= cardClasses.length; i++) {
+    const cardID = '#card' + i;
     $(cardID).find('.front').removeClass('cfalcon donkeykong fox kirby link mario pikachu samus yoshi');
     $(cardID).find('.front').addClass(cardClasses[i - 1]);
   }
@@ -70,11 +79,11 @@ function addClickHandler() {
 }
 
 function handleCardClick(event) {
-  var targetCard = $(event.currentTarget);
+  const targetCard = $(event.currentTarget);
   if (targetCard.hasClass('back')) {
     targetCard.off('click');
     targetCard.parent().toggleClass('flip');
-    setTimeout(function(){
+    setTimeout(() => {
       targetCard.addClass('hidden');
     }, 300);
   }
@@ -125,8 +134,8 @@ function resetClickedCards() {
 }
 
 function checkWin() {
-  if (matches === maxMatches) {
-    setTimeout(function(){
+  if (matches === cardClasses.length / 2) {
+    setTimeout(() => {
       $('#win_modal').removeClass('hidden');
       playWinSound();
     }, 800);
@@ -142,7 +151,7 @@ function displayStats() {
   $('#games_played_count').text(gamesPlayed);
   $('#attempts_count').text(attempts);
 
-  var currentAccuracy = Math.round(calculateAccuracy() * 100) + '%';
+  const currentAccuracy = Math.round(calculateAccuracy() * 100) + '%';
   $('#accuracy_calc').text(currentAccuracy);
 }
 
@@ -166,11 +175,7 @@ function closeModal() {
   $('#win_modal').addClass('hidden');
 }
 
-function backButtonHandler() {
-  $('.back_button').click(closeModal);
-}
-
-function playAgainButtonHandler() {
+function setPlayAgainButtonHandler() {
   $('.play_again_button').click(resetAllCards).click(closeModal);
 }
 
@@ -179,16 +184,16 @@ function playWinSound() {
 }
 
 function playCorrectMatchSound() {
-  var soundToPlay = secondCardCheckFront.slice(secondCardCheckFront.lastIndexOf('/') + 1, secondCardCheckFront.lastIndexOf('.'));
-  var soundToPlayID = soundToPlay + '_sound';
+  const soundToPlay = secondCardCheckFront.slice(secondCardCheckFront.lastIndexOf('/') + 1, secondCardCheckFront.lastIndexOf('.'));
+  const soundToPlayID = soundToPlay + '_sound';
   document.getElementById(soundToPlayID).play();
 }
 
 function removeMatchedStock() {
-  var characterMatched = secondCardCheckFront.slice(secondCardCheckFront.lastIndexOf('/') + 1, secondCardCheckFront.lastIndexOf('.'));
-  var characterMatchedID = '#' + characterMatched + '_stock';
+  const characterMatched = secondCardCheckFront.slice(secondCardCheckFront.lastIndexOf('/') + 1, secondCardCheckFront.lastIndexOf('.'));
+  const characterMatchedID = '#' + characterMatched + '_stock';
   $(characterMatchedID).addClass('pop');
-  setTimeout(function(){
+  setTimeout(() => {
     $(characterMatchedID).addClass('hidden');
   }, 300);
 }
@@ -201,7 +206,7 @@ function pauseBackgroundMusic() {
   document.getElementById('background_music').pause();
 }
 
-function muteButtonHandler() {
+function setMuteButtonHandler() {
   $('#mute_button, #unmute_button').click(handleMuteClick);
 }
 
