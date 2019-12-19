@@ -5,6 +5,7 @@
 
 * {
   box-sizing: border-box;
+  font-size: 10px;
 }
 
 body {
@@ -48,27 +49,27 @@ body {
 .header_container{
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
 }
   .top_heading {
     display: inline-block;
-    font-size: 4em;
+    font-size: 6rem;
     font-family: galliard, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background: -webkit-linear-gradient(black 35%, darkred 70%, firebrick 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px white;
-    letter-spacing: -3px;
-    margin: 1vh 1vw;
+    letter-spacing: -0.3rem;
+    margin: 1rem;
   }
   .top_subheading {
     display: inline-block;
-    font-size: 3em;
+    font-size: 4.5rem;
     background: -webkit-linear-gradient(black 45%, plum);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px white;
-    margin: 1vh 1vw;
+    margin: 1rem;
   }
 
 /* MAIN */
@@ -84,11 +85,11 @@ body {
     align-items: center;
     text-align: center;
     width: 25%;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.1rem;
   }
     .stats_title {
-      margin: 1vh;
-      font-size: 1.5em;
+      margin: 1rem;
+      font-size: 3rem;
       background: -webkit-linear-gradient(black 45%, plum);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -97,13 +98,13 @@ body {
     .stats_box{
       background-color: rgba(221, 160, 221, .2);
       border: 1px solid white;
-      border-radius: 10px;
+      border-radius: 1rem;
       -webkit-text-stroke: 0.5px white;
       width: 65%;
-      padding: 3vh 0;
-      font-size: 1.3em;
+      padding: 2rem 0;
+      font-size: 2.5rem;
       text-align: center;
-      margin: 0.5vh;
+      margin: 0.5rem 0;
     }
       .stock_head {
         transform: perspective(1px) translateZ(0);
@@ -118,10 +119,9 @@ body {
       flex-wrap: wrap;
       justify-content: space-around;
       align-content: space-around;
-
       width: 100%;
       height: 100%;
-      perspective: 1000px;
+      perspective: 100rem;
     }
       .card_div{
         height: 30%;
@@ -138,8 +138,8 @@ body {
           background-position: center;
           background-repeat: no-repeat;
           height: 100%;
-          border: 3px groove plum;
-          border-radius: 10px;
+          border: 0.3rem groove plum;
+          border-radius: 1rem;
         }
         .back {
           background-image: url(../images/smash/logo.png);
@@ -191,13 +191,13 @@ body {
 /* WIN MODAL */
 .modal {
   position: fixed;
-  z-index: 2;
-  left: 0;
   top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
   .modal_area {
     background-color: indigo;
@@ -206,7 +206,7 @@ body {
     background-position: center;
     background-repeat: repeat-x;
     margin: 15% auto;
-    padding: 2em;
+    padding: 5em;
     border: 1px solid white;
     border-radius: 10px;
     width: 40%;
@@ -214,35 +214,31 @@ body {
     .win_message {
       text-align: center;
     }
-    .modal_buttons {
-      display: flex;
-      justify-content: space-around;
+    .play_again_button {
+      background-color: rgba(221, 160, 221, .4);
+      padding: 2rem;
+      border: 1px solid white;
+      border-radius: 1rem;
+      font-size: 2.5rem;
+      text-align: center;
+      -webkit-text-stroke: 0.5px white;
+      width: 40%;
+      margin: 1rem auto;
     }
-      .back_button, .play_again_button {
-        width: 30%;
-        height: 10%;
-        background-color: rgba(221, 160, 221, .2);
-        padding: 1em;
-        border: 1px solid white;
-        border-radius: 10px;
-        font-size: 1.4em;
-        text-align: center;
-        -webkit-text-stroke: 0.5px white;
+      .play_again_button:hover {
+        cursor: pointer;
+        background-color: rgba(221, 160, 221, .6);
       }
-        .back_button:hover, .play_again_button:hover {
-          cursor: pointer;
-          opacity: 0.5;
-        }
 
 /* SOUND CONTROLS */
 .mute_button, .unmute_button {
   position: fixed;
-  right: 2vh;
-  bottom: 2vh;
-  width: 6vh;
-  height: 6vh;
+  right: 1rem;
+  bottom: 1rem;
+  width: 4rem;
+  height: 4rem;
   opacity: 0.5;
-  font-size: 6vh;
+  font-size: 4rem;
   color: white;
   z-index: 3;
 }
@@ -252,6 +248,10 @@ body {
   }
 
 /* HELPER CLASSES */
+.icon {
+  font-size: inherit;
+}
+
 .hidden {
   display: none;
 }

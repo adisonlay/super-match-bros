@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://kit.fontawesome.com/ab6b2503d1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
@@ -43,7 +43,6 @@
       </aside>
 
       <main class="main_container">
-
         <div class="cards_container">
 
           <div class="card_div" id="card1">
@@ -137,24 +136,17 @@
           </div>
 
         </div>
-
       </main>
 
-      <div class="modal hidden" id="win_modal">
-        <div class="modal_area">
-          <div class="win_message"><img src="assets/images/smash/win_message.png" alt="Game!"></div>
-          <div class="modal_buttons">
-            <div class="back_button hover_glow">
-              Back
-            </div>
-            <div class="play_again_button hover_glow">
-              Play Again
-            </div>
-          </div>
+    </div>
 
+    <div class="modal hidden" id="win_modal">
+      <div class="modal_area">
+        <div class="win_message">
+          <img src="assets/images/smash/win_message.png" alt="Game!">
         </div>
+        <div class="play_again_button hover_glow">Play Again</div>
       </div>
-
     </div>
 
     <div class="audio">
@@ -168,16 +160,16 @@
       <audio src="assets/sounds/pikachu.wav" id="pikachu_sound"></audio>
       <audio src="assets/sounds/samus.wav" id="samus_sound"></audio>
       <audio src="assets/sounds/yoshi.wav" id="yoshi_sound"></audio>
-      <audio autoplay loop id="background_music">
+      <audio loop id="background_music">
         <source src="assets/sounds/menu1.mp3" type="audio/mpeg">
       </audio>
     </div>
 
     <div class="mute_button" id="mute_button">
-      <i class="fas fa-volume-mute"></i>
+      <i class="fas fa-volume-mute icon"></i>
     </div>
     <div class="unmute_button hidden" id="unmute_button">
-      <i class="fas fa-volume-up hidden"></i>
+      <i class="fas fa-volume-up hidden icon"></i>
     </div>
 
   </body>
