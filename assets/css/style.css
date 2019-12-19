@@ -3,17 +3,14 @@
   src: url(../fonts/GalliardStd-Ultra.otf);
 }
 
-.hvr-glow {
-  -webkit-transform: perspective(1px) translateZ(0);
+.hover_glow {
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(255, 255, 255, 0);
-  -webkit-transition-duration: 0.3s;
   transition-duration: 0.5s;
-  -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
 }
 
-  .hvr-glow:hover {
+  .hover_glow:hover {
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
   }
 
