@@ -1,8 +1,4 @@
 /* ROOT */
-:root {
-  --tc-light-gray: #eeeeee;
-}
-
 * {
   box-sizing: border-box;
   font-size: 10px;
@@ -10,7 +6,7 @@
 
 body {
   background-image: url(../images/smash/background.jpg);
-  background-color: darkslategray;
+  background-color: plum;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -73,7 +69,7 @@ body {
   }
 
 /* MAIN */
-.display_area {
+.main_display {
   display: flex;
   justify-content: center;
 }
@@ -110,8 +106,8 @@ body {
         transform: perspective(1px) translateZ(0);
       }
 
-  /* GAME AREA MAIN */
-  .main_container {
+  /* GAME AREA SECTION */
+  .game_area_container {
     width: 60%;
   }
     .cards_container {
@@ -200,7 +196,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
   .modal_area {
-    background-color: indigo;
+    background-color: plum;
     background-image: url(../images/smash/modal_background.jpg);
     background-size: cover;
     background-position: center;
