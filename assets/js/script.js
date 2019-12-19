@@ -1,7 +1,5 @@
 $(document).ready(initializeApp);
 
-const MAX_MATCHES = 9;
-
 let firstCardClicked = null;
 let secondCardClicked = null;
 let firstCardDiv = null;
@@ -39,8 +37,8 @@ function initializeApp() {
   shuffleCardOrder(cardClasses);
   setCardFronts();
   addClickHandler();
-  playAgainButtonHandler();
-  muteButtonHandler();
+  setPlayAgainButtonHandler();
+  setMuteButtonHandler();
 }
 
 function createCardElements() {
@@ -136,7 +134,7 @@ function resetClickedCards() {
 }
 
 function checkWin() {
-  if (matches === MAX_MATCHES) {
+  if (matches === cardClasses.length / 2) {
     setTimeout(() => {
       $('#win_modal').removeClass('hidden');
       playWinSound();
@@ -177,7 +175,7 @@ function closeModal() {
   $('#win_modal').addClass('hidden');
 }
 
-function playAgainButtonHandler() {
+function setPlayAgainButtonHandler() {
   $('.play_again_button').click(resetAllCards).click(closeModal);
 }
 
@@ -208,7 +206,7 @@ function pauseBackgroundMusic() {
   document.getElementById('background_music').pause();
 }
 
-function muteButtonHandler() {
+function setMuteButtonHandler() {
   $('#mute_button, #unmute_button').click(handleMuteClick);
 }
 
