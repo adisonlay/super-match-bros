@@ -42,7 +42,7 @@ body {
   }
 
 /* HEADER */
-.header_container{
+.header_container {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -92,7 +92,7 @@ body {
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px white;
     }
-    .stats_box{
+    .stats_box {
       background-color: rgba(221, 160, 221, .2);
       border: 1px solid white;
       border-radius: 1rem;
@@ -121,7 +121,7 @@ body {
       width: 100%;
       perspective: 100rem;
     }
-      .card_div{
+      .card_div {
         height: 30%;
         width: 15%;
         position: relative;
@@ -258,4 +258,35 @@ body {
 
 .hidden {
   display: none;
+}
+
+/* MEDIA QUERY - VERTICAL LAYOUT */
+@media only screen and (max-device-width: 1024px) and (orientation: portrait),
+(max-width: 560px) {
+
+  .main_display {
+    flex-direction: column;
+  }
+
+  .stats_container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 20%;
+    width: 100%;
+  }
+    .stats_title, #stocks_label, #stocks_displayed {
+      display: none;
+    }
+    .stats_box {
+      height: 50%;
+      width: 33%;
+      line-height: 9vh;
+    }
+
+  .game_area_container {
+    height: 80%;
+    width: 100%;
+  }
+
 }
