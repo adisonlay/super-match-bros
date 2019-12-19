@@ -35,11 +35,22 @@ let cardClasses = [
 ];
 
 function initializeApp() {
+  createCardElements();
   shuffleCardOrder(cardClasses);
   setCardFronts();
   addClickHandler();
   playAgainButtonHandler();
   muteButtonHandler();
+}
+
+function createCardElements() {
+  for (let i = 1; i <= cardClasses.length; i++) {
+    const cardDiv = $('<div>').addClass('card_div').attr('id', 'card' + i);
+    const cardBack = $('<div>').addClass('card back hover_glow');
+    const cardFront = $('<div>').addClass('card front');
+    cardDiv.append(cardBack, cardFront);
+    $('.cards_container').append(cardDiv);
+  }
 }
 
 function shuffleCardOrder(array) {
@@ -59,7 +70,7 @@ function shuffleCardOrder(array) {
 
 function setCardFronts() {
   for (let i = 1; i <= cardClasses.length; i++) {
-    let cardID = '#card' + i;
+    const cardID = '#card' + i;
     $(cardID).find('.front').removeClass('cfalcon donkeykong fox kirby link mario pikachu samus yoshi');
     $(cardID).find('.front').addClass(cardClasses[i - 1]);
   }
@@ -70,7 +81,7 @@ function addClickHandler() {
 }
 
 function handleCardClick(event) {
-  let targetCard = $(event.currentTarget);
+  const targetCard = $(event.currentTarget);
   if (targetCard.hasClass('back')) {
     targetCard.off('click');
     targetCard.parent().toggleClass('flip');
