@@ -50,14 +50,19 @@
 
     <div class="modal hidden" id="win_modal">
       <div class="modal_area">
-        <div class="win_message">
-          <img src="assets/images/smash/win_message.png" alt="Game!">
-        </div>
+        <div class="win_message"></div>
         <div class="play_again_button hover_glow">Play Again</div>
       </div>
     </div>
 
-    <div class="audio">
+    <div class="mute_button" id="mute_button">
+      <i class="fas fa-volume-mute icon"></i>
+    </div>
+    <div class="unmute_button hidden" id="unmute_button">
+      <i class="fas fa-volume-up hidden icon"></i>
+    </div>
+
+    <div class="audio_container">
       <audio src="assets/sounds/game.wav" id="game_sound"></audio>
       <audio src="assets/sounds/cfalcon.wav" id="cfalcon_sound"></audio>
       <audio src="assets/sounds/donkeykong.wav" id="donkeykong_sound"></audio>
@@ -71,13 +76,6 @@
       <audio loop id="background_music">
         <source src="assets/sounds/menu1.mp3" type="audio/mpeg">
       </audio>
-    </div>
-
-    <div class="mute_button" id="mute_button">
-      <i class="fas fa-volume-mute icon"></i>
-    </div>
-    <div class="unmute_button hidden" id="unmute_button">
-      <i class="fas fa-volume-up hidden icon"></i>
     </div>
 
   </body>
