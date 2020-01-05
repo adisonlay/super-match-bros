@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background-image: url(../images/smash/background.jpg);
+  background-image: url(../images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -120,7 +120,7 @@ body {
       align-content: space-evenly;
       height: 100%;
       width: 100%;
-      perspective: 100rem;
+      perspective: 150rem;
     }
       .card_div {
         height: 30%;
@@ -141,7 +141,7 @@ body {
           border-radius: 1rem;
         }
         .back {
-          background-image: url(../images/smash/logo.png);
+          background-image: url(../images/logo.png);
           background-color: rgb(35, 30, 70);
           background-size: contain;
           background-position: center;
@@ -160,31 +160,31 @@ body {
 
 /* CARD IMAGES */
 .cfalcon {
-  background-image: url(../images/smash/cfalcon.png);
+  background-image: url(../images/cfalcon.png);
 }
 .donkeykong {
-  background-image: url(../images/smash/donkeykong.png);
+  background-image: url(../images/donkeykong.png);
 }
 .fox {
-  background-image: url(../images/smash/fox.png);
+  background-image: url(../images/fox.png);
 }
 .kirby {
-  background-image: url(../images/smash/kirby.png);
+  background-image: url(../images/kirby.png);
 }
 .link {
-  background-image: url(../images/smash/link.png);
+  background-image: url(../images/link.png);
 }
 .mario {
-  background-image: url(../images/smash/mario.png);
+  background-image: url(../images/mario.png);
 }
 .pikachu {
-  background-image: url(../images/smash/pikachu.png);
+  background-image: url(../images/pikachu.png);
 }
 .samus {
-  background-image: url(../images/smash/samus.png);
+  background-image: url(../images/samus.png);
 }
 .yoshi {
-  background-image: url(../images/smash/yoshi.png);
+  background-image: url(../images/yoshi.png);
 }
 
 /* WIN MODAL */
@@ -199,7 +199,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
   .modal_area {
-    background-image: url(../images/smash/modal_background.jpg);
+    background-image: url(../images/modal_background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: repeat-x;
@@ -213,7 +213,7 @@ body {
     border-radius: 1rem;
   }
     .win_message {
-      background-image: url(../images/smash/win_message.png);
+      background-image: url(../images/win_message.png);
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -252,7 +252,7 @@ body {
     opacity: 0.8;
   }
 
-/* HELPER CLASSES */
+/* UTILITY CLASSES */
 .icon {
   font-size: inherit;
 }
