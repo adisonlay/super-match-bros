@@ -9,7 +9,7 @@ Test your memory with this Super Smash Bros. Melee themed card matching web game
 - CSS3
 
 ## Live Demo
-Try the application live at [http://smb.adisonlay.com/](http://smb.adisonlay.com/).
+Try the application live at https://smb.adisonlay.com/.
 
 ## Features
 - Player can flip to reveal a character card.
