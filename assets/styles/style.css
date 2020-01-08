@@ -103,11 +103,19 @@ body {
       font-size: 2.5rem;
       text-align: center;
       line-height: 9vh;
-      overflow: hidden;
     }
-      .stock_head {
-        transform: perspective(1px) translateZ(0);
+      #stocks_displayed {
+        line-height: 4.5vh;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
       }
+        .stock_head {
+          transform: perspective(1px) translateZ(0);
+          flex: 0 0;
+        }
 
   /* GAME AREA SECTION */
   .game_area_container {
