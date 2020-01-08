@@ -154,6 +154,7 @@ body {
         .front {
           position: absolute;
           width: 100%;
+          background-size: contain;
           backface-visibility: hidden;
           transform: rotateY(180deg);
         }
@@ -312,5 +313,8 @@ body {
 @media only screen and (max-width: 480px) {
   * {
     font-size: 5px;
+  }
+  .play_again_button {
+    width: 75%;
   }
 }
