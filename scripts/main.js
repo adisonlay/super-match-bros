@@ -44,7 +44,7 @@ function initializeApp() {
 function createCardElements() {
   for (let i = 1; i <= cardClasses.length; i++) {
     const cardDiv = $('<div>').addClass('card_div').attr('id', 'card' + i);
-    const cardBack = $('<div>').addClass('card back hover_glow');
+    const cardBack = $('<div>').addClass('card back');
     const cardFront = $('<div>').addClass('card front');
     cardDiv.append(cardBack, cardFront);
     $('.cards_container').append(cardDiv);
@@ -75,7 +75,7 @@ function setCardFronts() {
 }
 
 function addClickHandler() {
-  $('.card.back').click(handleCardClick);
+  $('.card.back').addClass('hover_glow').click(handleCardClick);
 }
 
 function handleCardClick(event) {
@@ -118,7 +118,7 @@ function checkMatch(card1, card2) {
 }
 
 function removeClickHandler() {
-  $('.card').off('click');
+  $('.card').removeClass('hover_glow').off('click');
 }
 
 function flipCardsBack() {
