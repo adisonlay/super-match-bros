@@ -312,10 +312,16 @@ body {
   * {
     font-size: 7px;
   }
+  .stock_head {
+    width: 14px;
+  }
 }
 @media only screen and (max-width: 600px) {
   * {
     font-size: 6px;
+  }
+  .stock_head {
+    width: 12px;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -324,5 +330,8 @@ body {
   }
   .play_again_button {
     width: 75%;
+  }
+  .stock_head {
+    width: 10px;
   }
 }
