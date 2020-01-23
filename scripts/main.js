@@ -75,7 +75,7 @@ function setCardFronts() {
 }
 
 function addClickHandler() {
-  $('.card.back').addClass('hover_glow').click(handleCardClick);
+  $('.card.back').addClass('hover_glow pointer').click(handleCardClick);
 }
 
 function handleCardClick(event) {
@@ -118,7 +118,7 @@ function checkMatch(card1, card2) {
 }
 
 function removeClickHandler() {
-  $('.card').removeClass('hover_glow').off('click');
+  $('.card').removeClass('hover_glow pointer').off('click');
 }
 
 function flipCardsBack() {
